@@ -1,4 +1,56 @@
-h1 {
-    font-size: 40px;
-    border: 1px solid green;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Navigation bar*/
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+
+/*Create information of users -CSS*/
+.create-user-container {
+    padding: 16px;
+    text-align: center;
+}
+
+.create-user-container__infor {
+    padding-top: 10px;
+}
+
+.create-user-container__infor label {
+    display: block;
+}
+
+.create-user-container_btn {
+    margin-top: 10px;
+    cursor: pointer;
 }

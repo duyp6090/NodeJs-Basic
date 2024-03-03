@@ -1,29 +1,26 @@
 // Get the client
 import mysql from 'mysql2';
 
-// Create the connection to database
-const connection = mysql.createConnection({
+// Create the connection pool. The pool-specific settings are the defaults
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     database: 'nodejsbasic',
+    waitForConnections: true,
+    connectionLimit: 10,
+    maxIdle: 10, // max idle connections, the default value is the same as `connectionLimit`
+    idleTimeout: 60000, // idle connections timeout, in milliseconds, the default value 60000
+    queueLimit: 0,
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 0,
 });
 
-// A simple SELECT query
-// connection.query(
-//     'SELECT * FROM `users`',
-//     function (err, results, fields) {
-//         console.log(results); // results contains rows returned by server
-//         //console.log(fields); // fields contains extra meta data about results, if available
-//     }
-// );
+// Create the connection to database
+// const connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     database: 'nodejsbasic',
+// });
 
-// Using placeholders
-// connection.query(
-//   'SELECT * FROM `table` WHERE `name` = ? AND `age` > ?',
-//   ['Page', 45],
-//   function (err, results) {
-//     console.log(results);
-//   }
-// );
 
-export default connection;
+export default pool;
