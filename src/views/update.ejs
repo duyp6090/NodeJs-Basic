@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updaate-User</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="edit-user">
+        <form action="/update-user" method="POST">
+            <input type="text" hidden value="<%= data[0].id %>" name="userId">
+            <div class="edit-user__infor">
+                <label for="">First name:</label>
+                <input type="text" name="FirstName" value="<%= data[0].FirstName %>">
+            </div>
+            <div class="edit-user__infor">
+                <label for="">Last name:</label>
+                <input type="text " name="LastName" value="<%= data[0].LastName %>">
+            </div>
+            <div class="edit-user__infor">
+                <label for="">Email:</label>
+                <input type="text" name="Email" value="<%= data[0].Email %>">
+            </div>
+            <div class="edit-user__infor">
+
+                <label for="">Address:</label>
+                <input type="text" name="Address" value="<%= data[0].Address %>">
+            </div>
+            <div class="edit-user__infor">
+                <button class="save-btn btn" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

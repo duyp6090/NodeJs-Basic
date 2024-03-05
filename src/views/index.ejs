@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Management-App</title>
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -42,9 +42,16 @@
                             <%= dataUsers[i].LastName %>
                         </td>
                         <td>
-                            <a href="/detail/user/<%= dataUsers[i].id %>">Detail</a>
-                            <a>Edit</a>
-                            <a>Delete</a>
+                            <div>
+                                <a href="/detail/user/<%= dataUsers[i].id %>">Detail</a>
+                            </div>
+                            <form action="/edit-user/<%= dataUsers[i].id %>" method="GET">
+                                <button type="submit">Edit</button>
+                            </form>
+                            <form action="/delete-user" method="POST">
+                                <input type="text" hidden value="<%= dataUsers[i].id %>" name="userId">
+                                <button type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     <% } %>

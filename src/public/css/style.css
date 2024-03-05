@@ -1,3 +1,5 @@
+/*CSS basic for website*/
+
 * {
     padding: 0;
     margin: 0;
@@ -36,7 +38,7 @@ html {
 }
 
 
-/*Create information of users -CSS*/
+/*Create information of users - CSS*/
 .create-user-container {
     padding: 16px;
     text-align: center;
@@ -53,4 +55,21 @@ html {
 .create-user-container_btn {
     margin-top: 10px;
     cursor: pointer;
+}
+
+/*Edit information of user*/
+
+.edit-user {
+    border: 3px solid;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.edit-user__infor button {
+    cursor: pointer;
+    margin: auto;
+    width: 15%;
+    display: block;
+    margin-bottom: -12px;
 }
