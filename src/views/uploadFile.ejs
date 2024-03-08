@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management-App</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/upload-file" class="active">Upload Files</a>
+    </div>
+
+    <div class="upload-file-container">
+        <h1>Handling File Upload using Express.js and Multer</h1>
+        <form action="/profile" method="post" enctype="multipart/form-data">
+            <div class="upload-file-single">
+                <h3>Upload single file</h3>
+                <label for="">Select single image:</label>
+                <input type="file" name="avatar" multiple>
+            </div>
+            <div class="upload-file-single">
+                <button class="btn btn-save" type="submit">Save</button>
+            </div>
+        </form>
+
+        <div class="spacer"></div>
+
+        <form method="POST" action="/upload-multiple-images" enctype="multipart/form-data">
+            <div class="upload-file-mul">
+                <h3>Upload Multiple Files</h3>
+                <label>Select multiple images:</label>
+                <input type="file" name="multiple_images" multiple />
+            </div>
+            <div class="upload-file-mul">
+                <input type="submit" name="btn btn_upload_multiple_images" value="Upload" />
+            </div>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

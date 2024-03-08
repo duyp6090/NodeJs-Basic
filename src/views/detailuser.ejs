@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information</title>
+    <link rel="stylesheet" href="/css/detail.css">
+</head>
+
+<div class="main-infor-container">
+
+    <form class="form">
+        <h1 class="form-heading">User Information</h1>
+        <p class="form-desc">bảng thông tin</p>
+
+        <div class="distance"></div>
+
+        <div class="form-group">
+            <label for="fullname" class="form-label">First Name</label>
+            <input id="fullname" type="text" name="FirstName" value="<%= dataUser[0].FirstName %>" class="form-control"
+                disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input id="lastname" type="text" name="LastName" value="<%= dataUser[0].LastName %>" class="form-control"
+                disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" type="text" name="Email" value="<%= dataUser[0].Email %>" class="form-control" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="address" class="form-label">Address</label>
+            <input id="address" name="Address" value="<%= dataUser[0].Address %>" type="text" class="form-control"
+                disabled>
+        </div>
+    </form>
+
+</div>
+
+<body>
+
+</body>
+
+</html>

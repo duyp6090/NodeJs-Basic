@@ -1,5 +1,7 @@
-// Get data from database
+//Get data from database
 import pool from "../config/connectDB.js";
+import multer from "multer";
+
 
 let getHomepage = (req, res) => {
     //logic connect to database
@@ -8,7 +10,7 @@ let getHomepage = (req, res) => {
         'SELECT * FROM `users`',
         ['Rick C-137', 53],
         function (err, results, fields) {
-            //console.log(fields); // fields contains extra meta data about results, if available
+            console.log(fields);  //fields contains extra meta data about results, if available
             for (var key in results) {
                 data.push(results[key]);
             }
@@ -22,9 +24,9 @@ let getDetailUser = (req, res) => {
     let user = pool.execute(
         'SELECT * FROM `users` WHERE `id` = ?', [idUser],
         function (err, results, fields) {
-            //console.log(fields); // fields contains extra meta data about results, if available
-            //console.log(results);
-            return res.send({ dataUser: JSON.stringify(results) })
+            console.log(fields);  //fields contains extra meta data about results, if available
+            console.log(results);
+            return res.render('detailuser.ejs', { dataUser: results })
         }
     );
 }
@@ -49,7 +51,7 @@ let editUser = (req, res) => {
     pool.execute(
         'SELECT * FROM users WHERE `id` = ?', [idUser],
         function (err, results, fields) {
-            //console.log(fields); // fields contains extra meta data about results, if available
+            console.log(fields);  //fields contains extra meta data about results, if available
             return res.render('update.ejs', { data: results });
         }
     );
@@ -63,11 +65,47 @@ let updateUser = (req, res) => {
     return res.redirect('/');
 }
 
+let uploadFilePage = (req, res) => {
+    res.render('uploadFile.ejs');
+}
+
+//const upload = multer().single('avatar');
+
+let handleUploadFile = (req, res) => {
+    if (req.fileValidationError) {
+        return res.send(req.fileValidationError);
+    }
+    else if (!req.file) {
+        return res.send('Please select an image to upload');
+    }
+
+    //Display uploaded image for user validation
+    res.send(`You have uploaded this image: <hr/><img src="/img/${req.file.filename}" width="500"><hr /><a href="./upload-file">Upload another image</a>`);
+}
+
+
+let handleMulUpLoadFile = (req, res) => {
+
+    if (req.fileValidationError) {
+        return res.send(req.fileValidationError);
+    }
+    else if (!req.files) {
+        return res.send('Please select an image to upload');
+    }
+
+    let result = "You have uploaded these images: <hr />";
+    const files = req.files;
+    let index, len;
+
+    // Loop through all the uploaded images and display them on frontend
+    for (index = 0, len = files.length; index < len; ++index) {
+        result += `<img src="/img/${files[index].filename}" width="300" style="margin-right: 20px;">`;
+    }
+    result += '<hr/><a href="./upload-file">Upload more images</a>';
+    res.send(result);
+}
+
 module.exports = {
-    getHomepage,
-    getDetailUser,
-    createNewUser,
-    deleteUser,
-    editUser,
-    updateUser
+    getHomepage, getDetailUser, createNewUser, deleteUser, editUser, updateUser,
+    uploadFilePage, handleUploadFile, handleMulUpLoadFile
 }

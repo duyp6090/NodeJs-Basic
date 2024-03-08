@@ -8,6 +8,7 @@
 
 html {
     box-sizing: border-box;
+    font-size: 62.5%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -37,8 +38,17 @@ html {
     color: white;
 }
 
+/*Button to handle user */
+td .btn-detail {
+    border: 1px solid #333;
+    background-color: #ccc;
+}
 
-/*Create information of users - CSS*/
+td .btn-detail a {
+    text-decoration: none;
+}
+
+/*Create information of users */
 .create-user-container {
     padding: 16px;
     text-align: center;
@@ -57,19 +67,28 @@ html {
     cursor: pointer;
 }
 
-/*Edit information of user*/
+/*Upload files*/
 
-.edit-user {
-    border: 3px solid;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+.upload-file-container {
+    background: #f1f1f1;
+    min-height: 100vh;
+    justify-content: center;
 }
 
-.edit-user__infor button {
-    cursor: pointer;
-    margin: auto;
-    width: 15%;
-    display: block;
-    margin-bottom: -12px;
+.upload-file-container h1 {
+    margin: 0 10px 15px 10px;
+}
+
+.upload-file-single {
+    margin: 12px;
+}
+
+.spacer {
+    margin-top: 24px;
+    border: 1px solid #333;
+    margin-bottom: 24px;
+}
+
+.upload-file-mul {
+    margin: 12px;
 }
